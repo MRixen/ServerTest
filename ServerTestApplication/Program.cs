@@ -28,7 +28,7 @@ namespace ConsoleApplication2
 
 
         static int timestamp = 0;
-        private static int timer = 50;
+        private static int timer = 14;
         static void Main(string[] args)
         {
             TcpListener serverSocket = new TcpListener(4555);
