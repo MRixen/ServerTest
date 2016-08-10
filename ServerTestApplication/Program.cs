@@ -44,6 +44,7 @@ namespace ConsoleApplication2
             int i = 0;
             int j = 0;
             bool countBackward = false;
+            int PAUSE_AMOUNT = 10;
 
             while ((true))
             {
@@ -53,20 +54,20 @@ namespace ConsoleApplication2
                     //{
                     //    requestCount = requestCount + 1;
 
-                    Debug.WriteLine(i);
-                    Debug.WriteLine(j);
+                    //Debug.WriteLine(i);
+                    //Debug.WriteLine(j);
                     //byte[] bytesFrom = new byte[10025];
                     //networkStream.Read(bytesFrom, 0, (int)clientSocket.ReceiveBufferSize);
                     //string dataFromClient = System.Text.Encoding.ASCII.GetString(bytesFrom);
                     //dataFromClient = dataFromClient.Substring(0, dataFromClient.IndexOf("$"));
                     //Console.WriteLine(" >> Data from client - " + dataFromClient);
                     //string serverResponse = "Last Message from client" + dataFromClient;
-                    string sensorID_0 = ":" + 0 + ":x" + 0 + "::y" + yData[i] + "::z" + zData[i] + "::" + timestamp + ";";
+                    string sensorID_0 = ":" + 0 + ":x" + 0 + "::y" + 0 + "::z" + zData[i] + "::" + timestamp + ";";
                     //string sensorID_0 = ":" + 0 + ":x" + rng.Next(10) + "::y" + rng.Next(60) + "::z" + rng.Next(60) + "::" + timestamp + ";";
                     sender(sensorID_0);
-                    Thread.Sleep(timer);
+                    //Thread.Sleep(timer);
                     //string sensorID_1 = ":" + 1 + ":x" + rng.Next(10) + "::y" + rng.Next(60) + "::z" + rng.Next(60) + "::" + timestamp + ";";
-                    string sensorID_1 = ":" + 1 + ":x" + 0 + "::y" + yData[i] + "::z" + zData[i] + "::" + timestamp + ";";
+                    string sensorID_1 = ":" + 1 + ":x" + 0 + "::y" + yData[i] + "::z" + 0 + "::" + timestamp + ";";
                     sender(sensorID_1);
                     //string sensorID_2 = ":" + 2 + ":x" + rng.Next(10) + "::y" + rng.Next(60) + "::z" + rng.Next(60) + "::" + timestamp + ";";
                     //sender(sensorID_2);
@@ -78,14 +79,14 @@ namespace ConsoleApplication2
                     if (i == yData.Length - 1) countBackward = true;
                     else if (i == 0) countBackward = false;
 
-                    if (!countBackward & (j >= ( 30)))
+                    if (!countBackward & (j >= (PAUSE_AMOUNT)))
                     {
                         i++;
                         j = 0;
                     }
                     else j++;
 
-                    if (countBackward & (j >= ( 30)))
+                    if (countBackward & (j >= (PAUSE_AMOUNT)))
                     {
                         i--;
                         j = 0;
